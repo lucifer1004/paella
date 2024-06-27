@@ -10,10 +10,10 @@ add_subdirectory(dummy_10)
 add_subdirectory(dummy_11)
 add_subdirectory(dummy_20)
 add_subdirectory(dummy_21)
-# Have to fix it before running it
-#add_subdirectory(cnn)
 
-if(tvm_FOUND)
+# Have to fix it before running it
+# add_subdirectory(cnn)
+if(TVM_DIR)
     add_subdirectory(tvm_mnist)
     add_subdirectory(tvm_mobilenet)
     add_subdirectory(tvm_resnet18)
@@ -25,5 +25,4 @@ if(tvm_FOUND)
     add_subdirectory(tvm_resnet50)
     add_subdirectory(tvm_resnet34)
     add_subdirectory(tvm_squeezenet1_1)
-endif(tvm_FOUND)
-
+endif(TVM_DIR)

@@ -1,4 +1,3 @@
 add_library(job_tvm_arcfaceresnet100 SHARED tvm_arcfaceresnet100.cpp)
-target_link_libraries(job_tvm_arcfaceresnet100 tvm::tvm_runtime llis_job llis_context)
+target_link_libraries(job_tvm_arcfaceresnet100 tvm_runtime llis_job llis_context)
 install(TARGETS job_tvm_arcfaceresnet100 DESTINATION lib/llis_jobs)
-
