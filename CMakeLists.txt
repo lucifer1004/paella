@@ -18,7 +18,7 @@ find_package(Boost REQUIRED system context program_options)
 
 find_package(spdlog REQUIRED)
 
-option(TVM_DIR "Home directory of TVM" OFF)
+option(TVM_DIR "Home directory of TVM" "")
 
 if(TVM_DIR)
     include_directories(PUBLIC ${TVM_DIR}/include)
