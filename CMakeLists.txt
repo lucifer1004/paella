@@ -15,7 +15,6 @@ find_package(CUDAToolkit)
 include_directories(${CUDAToolkit_INCLUDE_DIRS})
 
 find_package(Boost REQUIRED system context program_options)
-
 find_package(spdlog REQUIRED)
 
 option(TVM_DIR "Home directory of TVM" "")
@@ -55,8 +54,7 @@ include_directories(include)
 
 add_subdirectory(src)
 add_subdirectory(app)
-
-# add_subdirectory(tests)
+add_subdirectory(tests)
 add_subdirectory(jobs)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION include)

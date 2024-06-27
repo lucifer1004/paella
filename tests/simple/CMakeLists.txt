@@ -1,5 +1,5 @@
 # add_executable(test_direct_run_job direct_run_job.cpp $<TARGET_OBJECTS:ipc>)
-# target_link_libraries(test_direct_run_job llis_job_gpu llis_context CUDA::cudart dl rt)
+# target_link_libraries(test_direct_run_job llis_job_gpu llis_context CUDA::cudart fmt dl rt)
 
 if(TVM_DIR)
     add_executable(tvm_direct_concurrent tvm_direct_concurrent.cpp)
@@ -18,10 +18,10 @@ if(TVM_DIR)
 endif(TVM_DIR)
 
 add_executable(cuda_sync_benchmark cuda_sync_benchmark.cu)
-target_link_libraries(cuda_sync_benchmark CUDA::cudart dl rt)
+target_link_libraries(cuda_sync_benchmark CUDA::cudart fmt dl rt)
 
 add_executable(cuda_callback_benchmark cuda_callback_benchmark.cu)
-target_link_libraries(cuda_callback_benchmark CUDA::cudart dl rt)
+target_link_libraries(cuda_callback_benchmark CUDA::cudart fmt dl rt)
 
 add_executable(test_mmap_mlock_limit mmap_mlock_limit.cpp)
 target_link_libraries(test_mmap_mlock_limit rt)
