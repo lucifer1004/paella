@@ -2,7 +2,11 @@
 
 pixi install
 git submodule update --init --recursive
-ln -s .pixi/envs/default/targets/x86_64-linux/lib/stubs/libcuda.so .pixi/envs/default/targets/x86_64-linux/lib/
+
+# Link the stubbed libcuda.so
+pushd .pixi/envs/default/targets/x86_64-linux/lib
+ln -s stubs/libcuda.so libcuda.so
+popd
 
 # Initial build
 cmake -S . -B build -G Ninja \
