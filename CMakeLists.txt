@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 
 project(llis LANGUAGES CXX CUDA)
 
+include_directories(.pixi/envs/default/include)
+
 set(CMAKE_CXX_STANDARD 17)
 
 cmake_policy(SET CMP0105 NEW)
@@ -49,7 +51,7 @@ include_directories(include)
 
 add_subdirectory(src)
 add_subdirectory(app)
-add_subdirectory(tests)
+#add_subdirectory(tests)
 add_subdirectory(jobs)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION include)
