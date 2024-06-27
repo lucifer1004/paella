@@ -1,8 +1,12 @@
 #!/bin/bash
 
-install_path=/bigdisk/opt/llis
-export LLIS_MODELS_DIR=/bigdisk/models/cuda_llis
-res_dir=/bigdisk/results
+mkdir -p repro/models/cuda_llis
+mkdir -p repro/results
+
+install_path=../target
+export LLIS_MODELS_DIR=repro/models/cuda_llis
+export LD_LIBRARY_PATH=${PWD}/../tvm-llis/target/lib:${LD_LIBRARY_PATH}
+res_dir=repro/results
 
 while getopts 'p:m:o:' opt; do
   case "$opt" in
@@ -81,13 +85,13 @@ for ln_sigma in {1.5,2}; do
                 --num_jobs 3000 \
                 --concurrency 141 \
                 ${install_path}/lib/llis_jobs/libjob_tvm_mobilenet.so 0.257 36 \
-                ${install_path}/lib/llis_jobs/libjob_tvm_densenet121.so 0.0706 10 \
-                ${install_path}/lib/llis_jobs/libjob_tvm_googlenet.so 0.0546 8 \
-                ${install_path}/lib/llis_jobs/libjob_tvm_inception_v3.so 0.0138 2 \
-                ${install_path}/lib/llis_jobs/libjob_tvm_resnet18.so 0.272 38 \
-                ${install_path}/lib/llis_jobs/libjob_tvm_resnet34.so 0.168 24 \
-                ${install_path}/lib/llis_jobs/libjob_tvm_resnet50.so 0.0745 10 \
-                ${install_path}/lib/llis_jobs/libjob_tvm_squeezenet1_1.so 0.0894999999999999 13
+                # ${install_path}/lib/llis_jobs/libjob_tvm_densenet121.so 0.0706 10 \
+                # ${install_path}/lib/llis_jobs/libjob_tvm_googlenet.so 0.0546 8 \
+                # ${install_path}/lib/llis_jobs/libjob_tvm_inception_v3.so 0.0138 2 \
+                # ${install_path}/lib/llis_jobs/libjob_tvm_resnet18.so 0.272 38 \
+                # ${install_path}/lib/llis_jobs/libjob_tvm_resnet34.so 0.168 24 \
+                # ${install_path}/lib/llis_jobs/libjob_tvm_resnet50.so 0.0745 10 \
+                # ${install_path}/lib/llis_jobs/libjob_tvm_squeezenet1_1.so 0.0894999999999999 13
             wait
         done
     done
